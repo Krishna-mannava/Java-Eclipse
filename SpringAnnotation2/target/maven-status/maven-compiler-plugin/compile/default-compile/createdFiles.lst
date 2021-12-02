@@ -1,0 +1,6 @@
+com\annotations\AppConfig.class
+com\annotations\Samsung.class
+com\annotations\Snapdragon.class
+com\annotations\MediaTek.class
+com\annotations\MobileProcessor.class
+com\annotations\App.class

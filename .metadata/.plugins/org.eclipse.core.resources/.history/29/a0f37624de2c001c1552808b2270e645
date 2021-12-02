@@ -1,0 +1,19 @@
+
+public class demo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Hello World");
+		char c='C';
+		char d='D';
+		int val_C=(int)c;
+		int val_D=(int)d; 
+		System.out.println((char)(val_C+32));
+		System.out.println((char)(val_C+36));
+		int x=21;
+		int y=x++ + x++ - ++x;
+		System.out.println(y);
+
+	}
+
+}

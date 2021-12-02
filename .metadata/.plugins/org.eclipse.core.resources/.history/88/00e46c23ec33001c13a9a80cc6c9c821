@@ -1,0 +1,160 @@
+import java.util.*;
+import java.util.List;
+import java.util.Scanner;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
+
+public class electronicshop {
+static List<String> list1 = new ArrayList<String>();
+public static String username="";
+public static String password="";
+public static Scanner sc = new Scanner(System.in);
+public static int sum=0;
+public static int opt;
+public static int c;
+public static boolean login(String username,String password)
+{
+Map<String, String> login= new HashMap<String, String>();
+login.put("batch5", "cde");
+login.put("cognizant", "cde");
+login.put("PAT","cde");//additional users
+if(login.get(username)!=null && login.get(username).equals(password))
+{
+return true;
+
+}
+else
+{
+return false;
+}
+}
+public static void userdetails(String username)
+{
+System.out.println("                                                     Electronic Store                                                        ");
+System.out.print("Date: ");
+DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+LocalDateTime now = LocalDateTime.now();
+System.out.print(dtf.format(now)+"\t\t\t\t\t\t\t\t\t address: Guntur, AndhraPradesh, India \n");
+System.out.print("Customer Name: ");
+System.out.println(username);
+Map<String,Integer> store= new HashMap<String, Integer>();
+store.put("TV-LED",50000);
+store.put("TV-LCD",22000);
+store.put("KB-WRD",1000);
+store.put("KB-WRL",300);
+store.put("MT-LED",50000);
+store.put("MT-LCD",20000);
+store.put("MO-WRD",700);
+store.put("MO-WRL",300);
+System.out.println(store);
+
+
+while(true)
+{   System.out.println("                                                     Items Menu                                                           \n\t\t\t----------------------------------------------------------------------------------------\n  ");
+System.out.println("\t\t\t\t\t\t 1.TV \n\t\t\t\t\t\t 2.Keyboard \n\t\t\t\t\t\t 3.Monitor \n\t\t\t\t\t\t 4.Mouse \n\t\t\t\t\t\t 5.Netbill \n\t\t\t\t\t\t 6.Exit");
+System.out.print("Enter your choice:");
+c=sc.nextInt();
+String k,l;
+switch (c)
+{
+case 1:
+           System.out.print("1. LED tv -----   50,000/-\n2. LCD tv ----- 22,000/-\nEnter your choice: ");
+           opt=sc.nextInt();
+           k="TV";
+           switch(opt)
+           {
+           case 1: l="LED";sum+= store.get(k+"-"+l);
+           list1.add("LED tv --- 50,000/-");
+           break;
+           case 2:l="LCD";sum+=store.get(k+"-"+l);list1.add("LCD tv --- 22,000/-");
+           break;
+           default:
+            System.out.println("enter right choice!");
+           }
+           
+           break;
+       case 2:
+    	   k="KB";
+        System.out.print("1. Wireless Keyboard -----   1,000/-\n2. Wired Keyboard ----- 300/-\nEnter your choice: ");
+           opt=sc.nextInt();
+           switch(opt)
+           {
+           case 1: l="WRD";sum+=store.get(k+"-"+l);list1.add("Wireless Keyboard --- 1,000/-");
+           break;
+           case 2:l="WRL";sum+=store.get(k+"-"+l);list1.add("Wired Keyboard --- 300/-");
+           break;
+           default:
+            System.out.println("enter right choice!");
+           }
+           break;
+       case 3:
+    	   k="MT";
+        System.out.print("1. LED monitor -----   50,000/-\n2. LCD monitor ----- 20,000/-\nEnter your choice: ");
+           opt=sc.nextInt();
+           switch(opt)
+           {
+           case 1: l="LED";sum+=store.get(k+"-"+l);list1.add("LED Monitor --- 50,000/-");
+           break;
+           case 2: l="LCD";sum+=store.get(k+"-"+l);list1.add("LCD Monitor --- 20,000/-");
+           break;
+           default:
+            System.out.println("enter right choice!");
+           }
+           break;
+       case 4:
+    	   k="MO";
+        System.out.print("1. Wireless Mouse -----   700/-\n2. Wired Mouse ----- 300/-\nEnter your choice: ");
+           opt=sc.nextInt();
+           switch(opt)
+           {
+           case 1: l="WRD";sum+=store.get(k+"-"+l);list1.add("Wireless Mouse --- 700/-");
+           break;
+           case 2: l="WRL";sum+=store.get(k+"-"+l);list1.add("Wired Mouse --- 300/-");
+           break;
+           default:
+            System.out.println("enter right choice!");
+           }
+           break;
+ 
+       case 5:
+    	   System.out.println("Cart Items:------------------");
+    	   for(int i=0;i<list1.size();i++)
+    	   {
+    		   System.out.println(list1.get(i));
+    	   }
+            System.out.println("----------------------------");
+           System.out.println("Net Bill (INR): " +String.valueOf(sum));
+           break;
+       case 6:
+        System.out.println("Thank you for visitng our Store");
+           return;
+           
+       default:
+        System.out.println("Enter Right choice!");
+}
+
+}
+
+}
+
+public static void main(String[] args)
+{
+
+System.out.println("\t\t\t\t\t\t\tWelcome to our Electronic Store \n---------------------------------------\nPlease provide your login credentials (case sensitive)\n------------------------------------------------------ ");
+System.out.print("Enter Username: ");
+username=sc.nextLine();
+System.out.print("Enter Password: ");
+password=sc.next();
+if(login(username,password))
+{
+System.out.println("Login successful\n---------------------------------------------------");
+userdetails(username);
+}
+else
+{
+System.out.println("Login failed");
+}
+
+}
+
+}

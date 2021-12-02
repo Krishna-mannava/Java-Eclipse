@@ -1,0 +1,4 @@
+user_portal\DBConnection.class
+user_portal\jdbc.class
+user_portal\Model.class
+user_portal\UserPortal.class

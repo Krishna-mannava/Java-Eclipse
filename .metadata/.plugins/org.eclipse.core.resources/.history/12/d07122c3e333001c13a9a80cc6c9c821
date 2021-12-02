@@ -1,0 +1,137 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
+
+public class electronicshop {
+static List<String> list1 = new ArrayList<String>();
+public static String username="";
+public static String password="";
+public static Scanner sc = new Scanner(System.in);
+public static int sum=0;
+public static int opt;
+public static int c;
+public static boolean login(String username,String password)
+{
+String user="batch5";
+String pass="cde";
+if(username.equals(user)&&(password.equals(pass)))
+{
+return true;
+
+}
+else
+{
+return false;
+}
+}
+public static void userdetails(String username)
+{
+System.out.println("                                                     Electronic Store                                                        ");
+System.out.print("Date: ");
+DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+LocalDateTime now = LocalDateTime.now();
+System.out.print(dtf.format(now)+"\t\t\t\t\t\t\t\t\t address: Guntur, AndhraPradesh, India \n");
+System.out.print("Customer Name: ");
+System.out.println(username);
+
+while(true)
+{   System.out.println("                                                     Items Menu                                                           \n\t\t\t----------------------------------------------------------------------------------------\n  ");
+System.out.println("\t\t\t\t\t\t 1.TV \n\t\t\t\t\t\t 2.Keyboard \n\t\t\t\t\t\t 3.Monitor \n\t\t\t\t\t\t 4.Mouse \n\t\t\t\t\t\t 5.Netbill \n\t\t\t\t\t\t 6.Exit");
+System.out.print("Enter your choice:");
+c=sc.nextInt();
+switch (c)
+{
+case 1:
+           System.out.print("1. LED tv -----   50,000/-\n2. LCD tv ----- 22,000/-\nEnter your choice: ");
+           opt=sc.nextInt();
+           switch(opt)
+           {
+           case 1: sum+=50000;
+           list1.add("LED tv --- 50,000/-");
+           break;
+           case 2:sum+=22000;list1.add("LCD tv --- 22,000/-");
+           break;
+           default:
+            System.out.println("enter right choice!");
+           }
+           
+           break;
+       case 2:
+        System.out.print("1. Wireless Keyboard -----   1,000/-\n2. Wired Keyboard ----- 300/-\nEnter your choice: ");
+           opt=sc.nextInt();
+           switch(opt)
+           {
+           case 1: sum+=1000;list1.add("Wireless Keyboard --- 1,000/-");
+           break;
+           case 2:sum+=300;list1.add("Wired Keyboard --- 300/-");
+           break;
+           default:
+            System.out.println("enter right choice!");
+           }
+           break;
+       case 3:
+        System.out.print("1. LED monitor -----   50,000/-\n2. LCD monitor ----- 20,000/-\nEnter your choice: ");
+           opt=sc.nextInt();
+           switch(opt)
+           {
+           case 1: sum+=50000;list1.add("LED Monitor --- 50,000/-");
+           break;
+           case 2:sum+=20000;list1.add("LCD Monitor --- 20,000/-");
+           break;
+           default:
+            System.out.println("enter right choice!");
+           }
+           break;
+       case 4:
+        System.out.print("1. Wireless Mouse -----   700/-\n2. Wired Mouse ----- 300/-\nEnter your choice: ");
+           opt=sc.nextInt();
+           switch(opt)
+           {
+           case 1: sum+=700;list1.add("Wireless Mouse --- 700/-");
+           break;
+           case 2:sum+=300;list1.add("Wired Mouse --- 300/-");
+           break;
+           default:
+            System.out.println("enter right choice!");
+           }
+           break;
+ 
+       case 5:
+        System.out.println(list1);
+           System.out.println("Net Bill (INR): " +String.valueOf(sum));
+           break;
+       case 6:
+        System.out.println("Thank you for visitng our Store");
+           return;
+           
+       default:
+        System.out.println("Enter Right choice!");
+}
+
+}
+
+}
+
+public static void main(String[] args)
+{
+
+System.out.println("\t\t\t\t\t\t\tWelcome to our Electronic Store \n---------------------------------------\nPlease provide your login credentials (case sensitive)\n------------------------------------------------------ ");
+System.out.print("Enter Username: ");
+username=sc.nextLine();
+System.out.print("Enter Password: ");
+password=sc.next();
+if(login(username,password))
+{
+System.out.println("Login successful\n---------------------------------------------------");
+userdetails(username);
+}
+else
+{
+System.out.println("Login failed");
+}
+
+}
+
+}
